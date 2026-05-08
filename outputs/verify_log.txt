@@ -1,0 +1,94 @@
+verify_theorems.py  --  computational verification log
+Python  : 3.9.6
+SymPy   : 1.14.0
+
+========================================================================
+REDUCED PERIOD-2 FACTOR CHECK -- closed form of Phi*_2(w) for d = 3
+========================================================================
+Numerator of psi^2(z) - z (factored):
+  -z*(a*z**3 + b - 1)*(a**2*b*z**6 + 2*a*b**2*z**3 + a*b*z**3 - a*z**3 + b**3 + b**2)
+
+Quotient Phi*_2(z) matches a^2 b z^6 + a(2b^2+b-1) z^3 + b^2(b+1) ?
+  PASS
+
+Phi*_2(w) = a**2*b*w**2 + a*w*(2*b**2 + b - 1) + b**2*(b + 1)
+
+========================================================================
+COROLLARY 1.2 CHECK -- discriminant of Phi*_2(w) and its sign
+========================================================================
+sympy.discriminant(Phi*_2, w) = -a**2*(b + 1)*(3*b - 1)
+predicted: -a^2 (3b - 1) (b + 1)  = -a**2*(b + 1)*(3*b - 1)
+identity holds? PASS
+
+Numerical sign check for b in [-100, 100] \ {0, -1}, a = 1:
+  PASS -- discriminant is strictly negative for all 199 values.
+  a = 7/3 sweep: PASS
+
+========================================================================
+CYCLE-RATIO / PERIOD-3 CHECKS -- ratio identities
+========================================================================
+PASS: period-2 ratio parameter b=(tau^(d-1)-tau)/(tau^d-1) verified for d=2..8.
+PASS: inequality identity (tau^d-1)^2-(tau^(d-1)-tau)^2=(tau^2-1)(tau^(2d-2)-1) checked for d=2..8.
+PASS: period-3 elimination gives r^2 times the stated polynomial.
+PASS: period-3 polynomial satisfies the sum-of-squares identity.
+
+========================================================================
+COROLLARY 1.2 CHECK -- rational-root + d-th-power candidates
+========================================================================
+  d=3, b=  6:  C(d,b) = [-1, 1]  ->  PASS
+  d=3, b= 10:  C(d,b) = [-1, 1]  ->  PASS
+  d=3, b= 14:  C(d,b) = [-1, 1]  ->  PASS
+  d=3, b= 15:  C(d,b) = [-1, 1, -8, 8]  ->  PASS
+  d=3, b= 21:  C(d,b) = [-1, 1]  ->  PASS
+  d=3, b= 22:  C(d,b) = [-1, 1]  ->  PASS
+  d=3, b= 30:  C(d,b) = [-1, 1]  ->  PASS
+  d=3, b= 33:  C(d,b) = [-1, 1]  ->  PASS
+  d=5, b=  6:  C(d,b) = [-1, 1]  ->  PASS
+  d=5, b= 10:  C(d,b) = [-1, 1]  ->  PASS
+  d=5, b= 14:  C(d,b) = [-1, 1]  ->  PASS
+  d=5, b= 15:  C(d,b) = [-1, 1]  ->  PASS
+  d=5, b= 21:  C(d,b) = [-1, 1]  ->  PASS
+  d=5, b= 22:  C(d,b) = [-1, 1]  ->  PASS
+  d=5, b= 30:  C(d,b) = [-1, 1]  ->  PASS
+  d=5, b= 33:  C(d,b) = [-1, 1]  ->  PASS
+  d=7, b=  6:  C(d,b) = [-1, 1]  ->  PASS
+  d=7, b= 10:  C(d,b) = [-1, 1]  ->  PASS
+  d=7, b= 14:  C(d,b) = [-1, 1]  ->  PASS
+  d=7, b= 15:  C(d,b) = [-1, 1]  ->  PASS
+  d=7, b= 21:  C(d,b) = [-1, 1]  ->  PASS
+  d=7, b= 22:  C(d,b) = [-1, 1]  ->  PASS
+  d=7, b= 30:  C(d,b) = [-1, 1]  ->  PASS
+  d=7, b= 33:  C(d,b) = [-1, 1]  ->  PASS
+
+Corollary 1.2 candidate verification: PASS for all 24 (d, b) tested.
+
+========================================================================
+REMARK 4.1 CHECK -- period-3 quadratic factor for d = 3
+========================================================================
+Factored Phi*_3(z) over Z[a,b][z]:
+  (a**2*z**6 + 2*a*b*z**3 + a*z**3 + b**2 + b + 1)*(a**6*b**4*z**18 + 6*a**5*b**5*z**15 - a**5*b**2*z**15 + 15*a**4*b**6*z**12 - 2*a**4*b**3*z**12 + a**4*z**12 + 20*a**3*b**7*z**9 + a**3*b*z**9 + 15*a**2*b**8*z**6 + 2*a**2*b**5*z**6 + a**2*b**2*z**6 + 6*a*b**9*z**3 + a*b**6*z**3 + b**10)
+
+Q_1(w) = a**2*w**2 + a*w*(2*b + 1) + b**2 + b + 1
+discriminant_w Q_1 = -3*a**2  (predicted -3 a^2 : PASS )
+
+========================================================================
+EMPIRICAL ORBIT SEARCH -- no period->=2 rational cycle found
+========================================================================
+  d=3, a=1, b= -10:  rational cycles of length >=2 found: 0
+  d=3, a=1, b=  -3:  rational cycles of length >=2 found: 0
+  d=3, a=1, b=  -2:  rational cycles of length >=2 found: 0
+  d=3, a=1, b=   1:  rational cycles of length >=2 found: 0
+  d=3, a=1, b=   2:  rational cycles of length >=2 found: 0
+  d=3, a=1, b=   3:  rational cycles of length >=2 found: 0
+  d=3, a=1, b=   6:  rational cycles of length >=2 found: 0
+  d=3, a=1, b=  10:  rational cycles of length >=2 found: 0
+  d=3, a=1, b=  15:  rational cycles of length >=2 found: 0
+  d=5, a=1, b=   6:  rational cycles of length >=2 found: 0
+  d=5, a=1, b=  10:  rational cycles of length >=2 found: 0
+  d=5, a=1, b=  15:  rational cycles of length >=2 found: 0
+
+Empirical search verdict: PASS (no counterexamples).
+
+========================================================================
+ALL VERIFICATIONS COMPLETE
+========================================================================
