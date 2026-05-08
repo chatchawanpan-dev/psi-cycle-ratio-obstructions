@@ -1,0 +1,24 @@
+============================================================
+Magma verification for psi_{d,a,b}(z)=z/(a z^d+b)
+============================================================
+PASS: period-2 quotient identity in Z[u,v] for d=3.
+PASS: discriminant(Phi_2^*(W)) = -A^2(3B-1)(B+1).
+PASS: rational period-2 parameterization t <-> r*t verified.
+PASS: converse linear solve gives A=(r+1)/(r(r^2+r+1)), b=r/(r^2+r+1).
+PASS: general period-2 cycle-ratio identities checked for d=2..8.
+PASS: period-3 ratio elimination and sum-of-squares identity verified.
+PASS: odd-d coefficient checks for d = 3,5,7,9,11.
+PASS: period-3 factorization Q1(Z^3)*S(Z^3) verified.
+PASS: discriminant(Q1) = -3 A^2.
+PASS: discriminant-square conic parametrized by
+      b = -2(t+1)/(t^2+3), y = 1 + t b.
+EXAMPLE: for a=1/6, b=-2/3, the rational 2-cycle is 1 <-> -2.
+SEARCH: a=1, rational b of height <= 40 with rational-cube period-2 root:
+[]
+SEARCH: rational roots of S_{1,b}(W) for integer b in [-100,100]\{0}:
+[]
+SEARCH: rational-cube roots of S_{1,b}(W) in the same range:
+[]
+============================================================
+Magma verification complete.
+============================================================
